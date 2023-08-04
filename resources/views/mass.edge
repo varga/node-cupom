@@ -1,0 +1,12 @@
+@include('menu')
+
+<div class="container-fluid">
+<form method='POST' action='/api/v2/sim/cupom/massgenerate?x-kong-key=api_kong_key' enctype="multipart/form-data">
+  {{ csrfField }}
+  <h4>CUPOM EM MASSA</h4>
+    <input type="file" id="cupons" name="cupons" accept=".csv" required><br><br>
+    <input type="submit" class="btn" style="background-color: #fe0064; color: #FFF;" value="Enviar"> 
+</form>
+<div>
+
+@include('footer')

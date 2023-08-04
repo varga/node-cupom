@@ -1,0 +1,50 @@
+{
+  "name": "adonis-api-app",
+  "version": "4.1.0",
+  "adonis-version": "4.1.0",
+  "description": "Adonisjs boilerplate for API server with pre-configured JWT",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node ace test"
+  },
+  "keywords": [
+    "adonisjs",
+    "adonis-app"
+  ],
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@adonisjs/ace": "^5.0.8",
+    "@adonisjs/auth": "^3.2.0",
+    "@adonisjs/bodyparser": "~2.0.9",
+    "@adonisjs/cors": "^1.0.7",
+    "@adonisjs/drive": "^1.0.4",
+    "@adonisjs/fold": "^4.0.9",
+    "@adonisjs/framework": "^5.0.9",
+    "@adonisjs/ignitor": "^2.0.8",
+    "@adonisjs/lucid": "^6.3.0",
+    "@adonisjs/redis": "^2.1.0",
+    "@adonisjs/session": "^1.1.0",
+    "@aws-sdk/client-dynamodb": "^3.25.0",
+    "adonis-papaparse-provider": "^1.0.0-beta.0",
+    "argon2": "^0.28.2",
+    "aws-sdk": "^2.964.0",
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
+    "bunyan": "^1.8.15",
+    "crypto-js": "^4.1.1",
+    "dtrace-provider": "^0.8.8",
+    "hexo-cli": "^4.3.0",
+    "lucid": "^2.21.0",
+    "pg": "^8.7.1",
+    "react": "^15.7.0",
+    "react-dom": "^15.7.0",
+    "vogels": "^2.2.0"
+  },
+  "devDependencies": {},
+  "autoload": {
+    "App": "./app"
+  }
+}

@@ -1,0 +1,34 @@
+@include('menu')
+
+<div class="container-fluid">
+<form method='POST' action='/api/v2/sim/cupom/user/delete?x-kong-key=api_kong_key' enctype="multipart/form-data">
+  {{ csrfField }}
+    <h4>DELETAR USUÁRIO</h4>
+    <label for=" cupom">EMAIL:</label><br>
+    <input type="text" id="email" name="email" required><br><br>
+    <button type="button" class="btn" style="background-color: #fe0064; color: #FFF;" data-toggle="modal" data-target="#exampleModal">Deletar</button>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Tem certeza que quer excluir esse usuário?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Não</button>
+            <input type="submit" class="btn btn-danger" value="Sim">
+        </div>
+       <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</form>
+<div>
+  
+@include('footer')

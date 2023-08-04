@@ -1,0 +1,43 @@
+variables:
+  - ${{ if eq(variables['Build.SourceBranchName'], 'main') }}:
+    - group: sim-cupom-v2-prd
+    - group: sim-terraform-variables-prd
+  - ${{ elseif eq(variables['Build.SourceBranchName'], 'homolog') }}:
+    - group: sim-cupom-v2-hml
+    - group: sim-terraform-variables-hml
+  - ${{ else }}:
+    - group: sim-cupom-v2-dev
+    - group: sim-terraform-variables-dev
+
+trigger: 
+  branches:
+    include:
+      - main
+      - homolog
+      - develop
+
+resources:
+  repositories:
+    - repository: sim-pipeline-template
+      type: git
+      name: Arquitetura Sim/sim-pipeline-template
+      ref: develop
+
+pool:
+  vmImage: 'ubuntu-20.04'
+
+stages:
+- stage: 'Commons'
+  jobs:
+  - job:
+    displayName: 'Terraform install'
+    steps:
+    - task: TerraformInstaller@0
+      displayName: '1. Terraform install'
+      inputs:
+        terraformVersion: '1.2.2'
+
+- template: build/node.yml@sim-pipeline-template
+- template: terraform/plan-build.yml@sim-pipeline-template
+- template: approve-build.yml@sim-pipeline-template
+- template: terraform/apply-build.yml@sim-pipeline-template

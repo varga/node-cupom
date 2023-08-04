@@ -1,0 +1,14 @@
+@include('menu')
+<div class="container-fluid">
+  <h4>LOGIN</h4> 
+  <form method="POST" action="/api/v2/sim/cupom/login?x-kong-key=api_kong_key">
+    {{ csrfField }}    
+    <label for="email">E-MAIL: </label><br>
+    <input id="email" type="email" name="email" required><br>
+    <label for="password">SENHA: </label><br>
+    <input id="password" type="password" name="password" required><br><br>
+    <button type="submit" class="btn" style="background-color: #fe0064; color: #FFF;">ENTRAR</button>
+  </form>
+</div>
+
+@include('footer')

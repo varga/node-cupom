@@ -1,0 +1,60 @@
+@include('menu')
+
+<div class="container-fluid">
+
+<h4>CADASTRO DE CUPONS</h4>
+<form method='POST' action='/api/v2/sim/cupom/generate?x-kong-key=api_kong_key'>
+  {{ csrfField }}
+  <label for="cupom">CUPOM: </label><br>
+  <input type="text" id="CUPOM" name="cupom" required><br>
+  <label for="de_para">DE / PARA:</label><br>
+  <select name="de_para" id="de_para" required>
+    <option value="0">0</option>
+    <option value="1">1</option>
+  </select><br>
+  <label for="proposta_cadastro">Proposta:</label><br>
+  <input type="number" min=0 id="proposta_cadastro" name="proposta_cadastro" required><br>
+  <label for="tabela">Tabela:</label><br>
+  <input type="number" min=0 id="tabela" name="tabela" required><br>
+  <label for="data_inicial">Data Inicial:</label><br>
+  <input type="datetime-local" id="data_inicial" name="data_inicial" required><br>
+  <label for="data_final">Data Final:</label><br>
+  <input type="datetime-local" id="data_final" name="data_final" required><br>
+  <br>
+  <input type="submit" class="btn" style="background-color: #fe0064; color: #FFF;" value="Cadastrar">
+</form>
+</div>
+
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function(e) {
+
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0 so need to add 1 to make it 1!
+    var yyyy = today.getFullYear();
+    var hh = today.getHours();
+    var mn = today.getMinutes();
+
+    if(dd<10){
+      dd='0'+dd
+    } 
+    if(mm<10){
+      mm='0'+mm
+    } 
+    if(hh<10){
+      hh='0'+hh
+    } 
+    if(mn<10){
+      mn='0'+mn
+    } 
+
+    today = yyyy+'-'+mm+'-'+dd+'T'+hh+':'+mn;
+    document.getElementById("data_inicial").setAttribute("min", today);
+    document.getElementById("data_final").setAttribute("min", today);
+
+  });
+</script>
+
+@include('footer')
+

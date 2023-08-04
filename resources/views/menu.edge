@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+
+  .nav-link {
+    color: #FFF !important;
+  }
+
+  .nav-link:hover {
+    color: #000 !important;
+  }
+
+  .nav-link.active{
+    color: #fbdf52 !important;
+  }
+
+</style>
+
+<nav class="navbar navbar-expand navbar-dark mb-3" style="background-color: #fe0064; color: #FFF;">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      @loggedIn
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/api/v2/sim/cupom?x-kong-key=api_kong_key">CADASTRAR CUPOM</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/api/v2/sim/cupom/delete?x-kong-key=api_kong_key">DELETAR CUPOM</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/api/v2/sim/cupom/mass?x-kong-key=api_kong_key">CADASTRAR CUPOM EM MASSA</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="text-transform:uppercase;">{{auth.user.name}}</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/api/v2/sim/cupom/user/register?x-kong-key=api_kong_key">REGISTRAR USUÁRIO</a>
+            <a class="dropdown-item" href="/api/v2/sim/cupom/user/delete?x-kong-key=api_kong_key">DELETAR USUÁRIO</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/api/v2/sim/cupom/logout?x-kong-key=api_kong_key">SAIR</a>
+          </div>
+        </li>
+      </ul>
+      @endloggedIn
+    </div>
+  </div>
+</nav>
